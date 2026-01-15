@@ -47,7 +47,7 @@ function playGame (humanChoice, computerChoice) {
     console.log("Player: " + humanScore + "||" + "Computer: " + computerScore)
   }
   if (humanScore > computerScore) {
-    console.log("You Win! You managed to peat a semi random computer!!")
+    console.log("You Win! You managed to beat a semi random computer!!")
   }
   else {
     console.log("You Lose... Don't feel bad, it's a computer anyways!")
