@@ -1,8 +1,8 @@
 let humanScore = 0;
 let computerScore = 0;
 
-const humanSelection = getHumanChoice;
-const computerSelection = getComputerChoice;
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
 
 function getComputerChoice() {
   // generate random number, from 0 <= n < 1, store it in n
@@ -19,31 +19,27 @@ function getComputerChoice() {
   }
 }
 
-function getHumanChoice () {
+function getHumanChoice() {
   // set variable to user input, then make it lowercase
   return prompt("Rock...Paper...Scissors...Shoot!").toLowerCase();
 }
 
-// function playRound(humanSelection, computerSelection) {
-//   if (humanSelection === computerSelection) {
-//     console.log("It's a tie!")
-//   }
-//   else {
-//     switch (humanSelection, computerSelection) {
-//       case humanSelection === "rock":
-//
-//         break;
-//
-//       default:
-//         break;
-//     }
-//
-//   }
-// }
-
-getHumanChoice()
-getComputerChoice()
-
+function playRound(humanChoice, computerChoice) {
+  // check for a tie
+  if (humanChoice === computerChoice) {
+    return "It's a tie!"
+  }
+  // check win possibilities
+  else if ((humanChoice === "rock" && computerChoice === "scissors") || (humanChoice === "paper" && computerChoice === "rock") || (humanChoice === "scissors" && computerChoice === "paper")) {
+    return "You Win!" + " " + humanSelection + " beats" + " " + computerChoice
+    humanScore++
+  }
+  // all other scenarios are losing
+  else {
+    return "You Lose!" + " " + computerChoice + " beats" + " " + humanChoice
+    computerScore++
+  }
+}
 console.log(computerSelection)
 console.log(humanSelection)
-// playRound(humanSelection, computerSelection)
+console.log(playRound(humanSelection, computerSelection))
