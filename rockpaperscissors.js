@@ -1,9 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
 function getComputerChoice() {
   // generate random number, from 0 <= n < 1, store it in n
   let n = Math.random();
@@ -31,15 +28,33 @@ function playRound(humanChoice, computerChoice) {
   }
   // check win possibilities
   else if ((humanChoice === "rock" && computerChoice === "scissors") || (humanChoice === "paper" && computerChoice === "rock") || (humanChoice === "scissors" && computerChoice === "paper")) {
-    return "You Win!" + " " + humanSelection + " beats" + " " + computerChoice
     humanScore++
+    return "You Win!" + " " + humanChoice + " beats" + " " + computerChoice
   }
   // all other scenarios are losing
   else {
-    return "You Lose!" + " " + computerChoice + " beats" + " " + humanChoice
     computerScore++
+    return "You Lose!" + " " + computerChoice + " beats" + " " + humanChoice
   }
 }
-console.log(computerSelection)
-console.log(humanSelection)
-console.log(playRound(humanSelection, computerSelection))
+
+function playGame (humanChoice, computerChoice) {
+  for (i = 0; i < 5; i++) {
+    const humanSelection = getHumanChoice()
+    const computerSelection = getComputerChoice()
+    const result = playRound(humanSelection, computerSelection)
+    console.log(result)
+    console.log("Player: " + humanScore + "||" + "Computer: " + computerScore)
+  }
+  if (humanScore > computerScore) {
+    console.log("You Win! You managed to peat a semi random computer!!")
+  }
+  else {
+    console.log("You Lose... Don't feel bad, it's a computer anyways!")
+  }
+}
+
+// console.log(computerSelection)
+// console.log(humanSelection)
+// console.log(playRound(humanSelection, computerSelection))
+playGame()
