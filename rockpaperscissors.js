@@ -47,6 +47,15 @@ buttons.forEach((button) => {
 
     resultText.textContent = result;
     scoreText.textContent = "Player: " + humanScore + " | Computer: " + computerScore;
+
+    if (humanScore === 5 || computerScore === 5) {
+      resultText.textContent += " -- Game Over!";
+      if (humanScore === 5) {
+        resultText.textContent += "You Win! Way to go!";
+      } else {
+        resultText.textContent += " Computer Wins! Better luck next time"
+      }
+    }
   });
 });
 
